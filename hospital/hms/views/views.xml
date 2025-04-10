@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <menuitem id="hms_main_menu" name="HMS"/>
+        <menuitem id="patients_menu" name="Patients" parent="hms_main_menu"/>
+
+        <record id="patient_action" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">hms.patient</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="patient_tree_view" model="ir.ui.view">
+            <field name="name">hms.patient.tree</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="birth_date"/>
+                    <field name="blood_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="patient_form_view" model="ir.ui.view">
+            <field name="name">hms.patient.form</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="blood_type"/>
+                            <field name="pcr"/>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="address"/>
+                            <field name="age"/>
+                            <field name="history"/>
+                            <field name="cr_ratio"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="patients_menu_action" name="Patients" parent="hms_main_menu" action="patient_action"/>
+    </data>
+</odoo>
